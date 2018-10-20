@@ -6,8 +6,8 @@
 #include <assert.h>
 
 #include "containers/mmanager.h"
-#include "stg/math.h"
-#include "stg/util.h"
+#include "math.h"
+#include "util.h"
 
 static void std_pre(const struct resizable_array * inp)
 {

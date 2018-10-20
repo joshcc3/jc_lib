@@ -6,11 +6,13 @@
 #include <stdbool.h>
 
 typedef struct string_ {
-  char *char_arr;
+  const char *char_arr;
   int length;
 } string_;
 
 
+
+string_ new_string(const char *);
 err_t init_string_(const char *, int, struct string_ **);
 err_t deinit_string_(struct string_ **);
 

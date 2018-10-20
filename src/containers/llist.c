@@ -5,8 +5,8 @@
 #include <assert.h>
 
 #include "containers/mmanager.h"
-#include "stg/math.h"
-#include "stg/util.h"
+#include "math.h"
+#include "util.h"
 
 
 

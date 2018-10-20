@@ -7,8 +7,8 @@
 #include <limits.h>
 
 #include "containers/mmanager.h"
-#include "stg/math.h"
-#include "stg/util.h"
+#include "math.h"
+#include "util.h"
 
 static const int GROWTH_FACTOR = 2;
 

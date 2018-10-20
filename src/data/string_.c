@@ -5,6 +5,16 @@
 #include "containers/mmanager.h" 
 
 
+string_ new_string(const char* inp)
+{
+  int len = 0;
+  while(inp++ && len < (1 << 30)) len++;
+  if(inp) assert(false);
+
+  string_ out = (struct string_){ .char_arr = inp, .length = len };
+  return out;
+}
+
 err_t init_string_(const char * inp, int length, struct string_ ** result)
 {
   assert(length >= 0);

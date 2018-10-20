@@ -1,7 +1,7 @@
 #include "adj_list_tree.h"
 #include <assert.h>
 #include "mmanager.h"
-#include <stg/math.h>
+#include "math.h"
 
 
 

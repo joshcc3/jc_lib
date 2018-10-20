@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <sys/time.h>
+#include <stdio.h>
 
 void time_of_day(struct timeval *tv)
 {
@@ -12,7 +13,7 @@ void useconds_elapsed(struct timeval *t1, struct timeval *t2, struct timeval *re
   res->tv_usec = t2->tv_usec - t1->tv_usec;
 }
 
-void pprint_time1(struct timeval *t) { printf("%ds %dus", t->tv_sec, t->tv_usec); }
+void pprint_time1(struct timeval *t) { printf("%lds %ldus", t->tv_sec, t->tv_usec); }
 
 unsigned long long usec_since_epoch(struct timeval *t)
 {

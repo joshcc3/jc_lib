@@ -2,7 +2,7 @@
 
 #include <assert.h>
 
-#include "stg/math.h"
+#include "math.h"
 #include "containers/mmanager.h"
 #include "typeclasses.h"
 
