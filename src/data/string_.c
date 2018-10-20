@@ -4,13 +4,12 @@
 #include "string_.h"
 #include "containers/mmanager.h" 
 
-
 string_ new_string(const char* inp)
 {
   int len = 0;
-  while(inp++ && len < (1 << 30)) len++;
-  if(inp) assert(false);
-
+  const char* tmp = inp;
+  while(*(tmp++) && len++ < 2048);
+  if(*(inp + len)) assert(false);
   string_ out = (struct string_){ .char_arr = inp, .length = len };
   return out;
 }

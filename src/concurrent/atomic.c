@@ -1,5 +1,5 @@
 #include <stdbool.h>
-#include "atomic.h"
+#include "concurrent/atomic.h"
 
 void atomic_load(__int128_t* dest, __int128_t* src)
 {
