@@ -17,7 +17,7 @@ string_ std_format_fn(string_ message)
 {
   int estimated_len = message.length + 100;
   char* buffer = (char*)calloc(sizeof(char), estimated_len + 1);
-  sprintf(buffer, "%llu: Thread-%ld: %s\n\0", now()/1000, gettid(), message.char_arr);
+  sprintf(buffer, "%llu: Thread-%ld: %s\0", now()/1000, gettid(), message.char_arr);
   return new_string(buffer);
 }
 
