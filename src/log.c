@@ -15,9 +15,11 @@ const struct log_context std_log_context = (struct log_context){ .formatter = st
 
 string_ std_format_fn(string_ message)
 {
-  int estimated_len = message.length + 100;
+  string_ run_name = new_string(getenv("RUN_NAME"));
+  int estimated_len = message.length + run_name.length + 256;
+  
   char* buffer = (char*)calloc(sizeof(char), estimated_len + 1);
-  sprintf(buffer, "%llu: Thread-%ld: %s\0", now()/1000, gettid(), message.char_arr);
+  sprintf(buffer, "%s %llu Thread-%ld: %s\0", run_name.char_arr, now(), gettid(), message.char_arr);
   return new_string(buffer);
 }
 
@@ -32,14 +34,15 @@ void log_info_(string_ message)
 
 void log_info(char* message, ...)
 {
-  char buffer[2048];
-  memset(buffer, 0, 2048);
-
+  char buffer[4096];
+  memset(buffer, 0, 4096);
   va_list args;
   va_start(args, message);
   vsprintf(buffer, message, args);
   va_end(args);
-  log_info_(new_string(buffer));
+  string_ tmp = new_string(buffer);
+  if(tmp.length >= 2048) { perror(tmp.char_arr); assert(false); }
+  log_info_(tmp);
 }
 void log_err(char* message, ...)
 {
