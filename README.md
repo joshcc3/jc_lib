@@ -1,9 +1,10 @@
 # libjc
 
-Std lib for shitty stuff that I build and come to depend on.
+Std lib for containers and logging in pure c.
 
 ## Containers
- - arraylists
+Containers over generic types using a 'typeclasses' based approach (without too much type safety)
+ - arraylists, linked lists
  - hashmaps/sets
  - trees
 
